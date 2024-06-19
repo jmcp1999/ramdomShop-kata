@@ -38,7 +38,7 @@ public class ShoppingCart {
             return BigDecimal.valueOf(40000.0);
         } else if (product.getName().startsWith("Magic: The Gathering")) {
             return switch (product.getColor()) {
-                case "blue" -> BigDecimal.valueOf(5.0);
+                case "blue" -> ( product.getAge() > 10) ? BigDecimal.valueOf(2.5) : BigDecimal.valueOf(5.0);
                 case "red" -> BigDecimal.valueOf(3.5);
                 case "green" -> BigDecimal.valueOf(4.40);
                 case "black" -> BigDecimal.valueOf(6.80);

@@ -119,5 +119,16 @@ class ShoppingCartTest {
         assertEquals(shoppingCart.getTotalPrice(), 16.8);
     }
 
+    @Test
+    void calculatePriceForMagicCards_blue2() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(null, 12, false, "blue", null, "Magic: The Gathering - Maga Eternal", null);
+
+        shoppingCart.addProduct(product);
+
+        assertEquals(shoppingCart.getTotalPrice(), 2.5);
+    }
+
 
 }
