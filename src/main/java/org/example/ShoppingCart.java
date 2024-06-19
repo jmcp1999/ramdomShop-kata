@@ -28,11 +28,11 @@ public class ShoppingCart {
             } else {
                 return BigDecimal.valueOf(20.0 * product.getAge());
             }
-        } else if (product.getColor() != null && product.getBasePrice() == null) {
+        } else if (product.getColor() != null && product.getBasePrice() != null) {
             return switch (product.getColor()) {
-                case "blue" -> BigDecimal.valueOf(0.1);
-                case "gold" -> BigDecimal.valueOf(100.0);
-                default -> BigDecimal.valueOf(1.0);
+                case "blue" -> product.getBasePrice().add(BigDecimal.valueOf(0.1));
+                case "gold" -> product.getBasePrice().multiply(BigDecimal.valueOf(100.0));
+                default -> product.getBasePrice();
             };
         } else if (product.getName().equals("Magic: The Gathering - Black Lotus")) {
             return BigDecimal.valueOf(40000.0);
