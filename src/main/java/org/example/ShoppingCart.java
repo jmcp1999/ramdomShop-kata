@@ -25,7 +25,8 @@ public class ShoppingCart {
         } else if (product.getNumberOfLegs() != null && product.getColor() != null) {
            return switch (product.getColor()) {
             case "red" -> (product.isStinky() == true) ? BigDecimal.valueOf(0.6 * product.getNumberOfLegs() + 1) : BigDecimal.valueOf(1.2 * product.getNumberOfLegs() + 2);
-            default -> (product.isStinky()) ? BigDecimal.valueOf(0.6 * product.getNumberOfLegs() + 1) : BigDecimal.valueOf(1.2 * product.getNumberOfLegs() + 2);
+            case "gold" -> (product.isStinky() == true) ? BigDecimal.valueOf(0.6 * product.getNumberOfLegs() + 1.5) : BigDecimal.valueOf(1.2 * product.getNumberOfLegs() + 3);
+            default -> (product.isStinky()) ? BigDecimal.valueOf(0.6 * product.getNumberOfLegs()) : BigDecimal.valueOf(1.2 * product.getNumberOfLegs());
            };
         } else if (product.getAge() != null && product.getColor() == null) {
             if (product.isStinky()) {

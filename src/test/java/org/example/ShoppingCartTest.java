@@ -174,5 +174,60 @@ class ShoppingCartTest {
         assertEquals(shoppingCart.getTotalPrice(), 11.6);
     }
 
+    @Test
+    void calculatePriceForSpider_redstinky() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(8, null, true, "red", null, null, null);
+
+        shoppingCart.addProduct(product);
+
+        assertEquals(shoppingCart.getTotalPrice(), 5.8);
+    }
+
+    @Test
+    void calculatePriceForSpider_gold() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(8, null, false, "gold", null, null, null);
+
+        shoppingCart.addProduct(product);
+
+        assertEquals(shoppingCart.getTotalPrice(), 12.6);
+    }
+
+    @Test
+    void calculatePriceForSpider_goldstinky() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(8, null, true, "gold", null, null, null);
+
+        shoppingCart.addProduct(product);
+
+        assertEquals(shoppingCart.getTotalPrice(), 6.3);
+    }
+
+    @Test
+    void calculatePriceForSpiderstinky() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(8, null, true, "Brown", null, null, null);
+
+        shoppingCart.addProduct(product);
+
+        assertEquals(shoppingCart.getTotalPrice(), 4.8);
+    }
+
+    @Test
+    void calculatePriceForSpider() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(8, null, false, "blue", null, null, null);
+
+        shoppingCart.addProduct(product);
+
+        assertEquals(shoppingCart.getTotalPrice(), 9.6);
+    }
+
 
 }
