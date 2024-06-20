@@ -20,8 +20,13 @@ public class ShoppingCart {
     }
 
     private BigDecimal calculatePrice(Product product) {
-        if (product.getNumberOfLegs() != null) {
+        if (product.getNumberOfLegs() != null && product.getColor() == null) {
             return BigDecimal.valueOf(4.2 * product.getNumberOfLegs());
+        } else if (product.getNumberOfLegs() != null && product.getColor() != null) {
+           return switch (product.getColor()) {
+            case "red" -> (product.isStinky() == true) ? BigDecimal.valueOf(0.6 * product.getNumberOfLegs() + 1) : BigDecimal.valueOf(1.2 * product.getNumberOfLegs() + 2);
+            default -> (product.isStinky()) ? BigDecimal.valueOf(0.6 * product.getNumberOfLegs() + 1) : BigDecimal.valueOf(1.2 * product.getNumberOfLegs() + 2);
+           };
         } else if (product.getAge() != null && product.getColor() == null) {
             if (product.isStinky()) {
                 return BigDecimal.valueOf(10.0* product.getAge());
@@ -41,12 +46,16 @@ public class ShoppingCart {
                 case "blue" -> (product.getAge() > 10) ? BigDecimal.valueOf(2.5) : BigDecimal.valueOf(5.0);
                 case "red" -> (product.getAge() > 10) ? BigDecimal.valueOf(1.75) : BigDecimal.valueOf(3.5);
                 case "green" -> (product.getAge() > 20) ? BigDecimal.valueOf(5.28) : BigDecimal.valueOf(4.40);
-                case "black" -> (product.getAge() > 10) ? BigDecimal.valueOf(8.16) : BigDecimal.valueOf(6.80);
+                case "black" -> (product.getAge() > 20) ? BigDecimal.valueOf(8.16) : BigDecimal.valueOf(6.80);
                 default -> BigDecimal.valueOf(2.0);
             };
-        } else {
+        
+
+        }    
+         else { 
             return product.getSellPrice();
         }
+
     }
 
 }

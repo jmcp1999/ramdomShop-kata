@@ -11,7 +11,7 @@ class ShoppingCartTest {
     void calculatePriceForMagicCards_red() {
         ShoppingCart shoppingCart = new ShoppingCart();
 
-        Product product = new Product(null, null, false, "red", null, "Magic: The Gathering - Lightning Bolt", null);
+        Product product = new Product(null, 3, false, "red", null, "Magic: The Gathering - Lightning Bolt", null);
 
         shoppingCart.addProduct(product);
 
@@ -23,7 +23,7 @@ class ShoppingCartTest {
     void calculatePriceForMagicCards_blue() {
         ShoppingCart shoppingCart = new ShoppingCart();
 
-        Product product = new Product(null, null, false, "blue", null, "Magic: The Gathering - Maga Eternal", null);
+        Product product = new Product(null, 5, false, "blue", null, "Magic: The Gathering - Maga Eternal", null);
 
         shoppingCart.addProduct(product);
 
@@ -57,7 +57,7 @@ class ShoppingCartTest {
     @Test
     void calculatePriceForMagicCards_green() {
         ShoppingCart shoppingCart = new ShoppingCart();
-        Product product = new Product(null, null, false, "green", null, "Magic: The Gathering - Elder Gargaroht", null);
+        Product product = new Product(null, 1, false, "green", null, "Magic: The Gathering - Elder Gargaroht", null);
         shoppingCart.addProduct(product);
         assertEquals(shoppingCart.getTotalPrice(), 4.4);
     }
@@ -65,7 +65,7 @@ class ShoppingCartTest {
     @Test
     void calculatePriceForMagicCards_black() {
         ShoppingCart shoppingCart = new ShoppingCart();
-        Product product = new Product(null, null, false, "black", null, "Magic: The Gathering - Bad Ass", null);
+        Product product = new Product(null, 2, false, "black", null, "Magic: The Gathering - Bad Ass", null);
         shoppingCart.addProduct(product);
         assertEquals(shoppingCart.getTotalPrice(), 6.8);
     }
@@ -161,6 +161,17 @@ class ShoppingCartTest {
         shoppingCart.addProduct(product);
 
         assertEquals(shoppingCart.getTotalPrice(), 8.16);
+    }
+
+    @Test
+    void calculatePriceForSpider_red() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(8, null, false, "red", null, null, null);
+
+        shoppingCart.addProduct(product);
+
+        assertEquals(shoppingCart.getTotalPrice(), 11.6);
     }
 
 
